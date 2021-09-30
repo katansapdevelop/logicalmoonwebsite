@@ -1,10 +1,11 @@
 {
-  "name": "gatsby-starter-sasslan",
-  "description": "A minimalistic Gatsby starter with a pretyy design",
+  "name": "radix-logicalmoon",
+  "description": "The Logical Moon Website",
   "version": "1.0.0",
-  "author": "Amar Zia Arslaan",
+  "author": "Katan Patel",
   "dependencies": {
     "gatsby": "^2.19.43",
+    "gatsby-plugin-favicons": "^2.0.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-react-helmet": "^3.1.23",
     "gatsby-plugin-resolve-src": "^2.0.0",
@@ -21,10 +22,12 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-modal": "^3.14.3"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
+    "gatsby-remark-code-buttons": "^2.0.7",
     "gh-pages": "^2.2.0"
   },
   "keywords": [
@@ -37,6 +40,7 @@
     "build": "gatsby build",
     "develop": "env-cmd -f .env.development gatsby develop",
     "lint": "Get started linting your code with Eslint and stylelint",
+    "clean": "rm -rf .cache && rm -rf public",
     "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
     "start": "yarn develop",
     "serve": "gatsby serve",

@@ -4,12 +4,12 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Container from "components/Container";
 
+
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
-          author
           title
         }
       }
@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header>
       <Container>
-        <p>Sasslan</p>
+        <p>{data.site.siteMetadata.title}</p>
         {/* uncomment the line below to add your name in the header */}
         {/* <p>{data.site.siteMetadata.author}</p> */}
         <ul>
@@ -38,7 +38,7 @@ const Header = () => {
               cover
               direction="right"
               to="/about/"
-              bg="#E16085"
+              bg="#6666ff"
               duration={0.7}
               className="header-link"
             >
@@ -49,13 +49,14 @@ const Header = () => {
             <AniLink
               cover
               to="/projects/"
-              bg="#fccd04"
+              bg="#6666ff"
               duration={0.7}
               className="header-link"
             >
-              Projects
+              FAQ
             </AniLink>
           </li>
+          {/*}
           <li>
             <AniLink
               cover
@@ -67,7 +68,7 @@ const Header = () => {
             >
               Contact
             </AniLink>
-          </li>
+          </li> */}
         </ul>
       </Container>
     </header>

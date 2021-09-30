@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    author: "Amar Zia Arslaan",
-    title: "Gatsby Starter Template sasslan",
+    author: "Katan Patel",
+    title: "Radix Logical Moon",
+    validatorAddress: "rv1qtzlupqghjyvdsp3nn0cpkdvmtrfe7ac8czump5r6hgm0rnlhvznj88xw7a",
   },
-  pathPrefix: "/gatsby-starter-sasslan",
+  pathPrefix: "/",
   plugins: [
     "gatsby-plugin-resolve-src",
     "gatsby-plugin-sass",
@@ -23,6 +24,7 @@ module.exports = {
           `IBMPlexMono\:400, 700`,
           `BioRhyme\:200, 300, 400`,
           `Space Mono\:700`,
+          'material icons',
         ],
         display: "swap",
       },
@@ -49,6 +51,33 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: 'gatsby-plugin-favicons',
+      options: {
+        logo: './src/assets/images/favicon-32x32.png',
+        appName: 'Radix Logical Moon',
+        
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          yandex: false,
+          windows: true
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: ['gatsby-remark-code-buttons'],
+        options: {
+          toasterText: "Copied to clipboard",
+          toasterDuration: 10000,
+        },
+      }
     },
     "gatsby-plugin-transition-link",
     "gatsby-plugin-svg-sprite",

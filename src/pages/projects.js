@@ -31,19 +31,19 @@ const ProjectsPage = () => {
   return (
     <Layout pageName="projects">
       <Helmet>
-        <title>Projects</title>
+        <title>FAQ</title>
       </Helmet>
       <Container>
-        <h1>Projects</h1>
+        <h1>FAQ</h1>
         <ol>
           {data.allMarkdownRemark.edges.map((edge) => {
             return (
               <li>
                 <AniLink
                   cover
-                  direction="down"
-                  to={`/projects/${edge.node.fields.slug}`}
-                  bg="#fccd04"
+                  direction="up"
+                  to={`/faq/${edge.node.fields.slug}`}
+                  bg="#6666ff"
                   duration={0.5}
                 >
                   <div className="project-card">

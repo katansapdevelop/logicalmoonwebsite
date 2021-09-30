@@ -1,5 +1,31 @@
+@mixin blue-gradient {
+  background: -webkit-linear-gradient(
+    240deg,
+    #00d9ff,
+    rgb(26, 224, 204),
+    rgb(66, 213, 235),
+    rgb(94, 149, 217),
+    #6666ff
+  );
+}
+
+
+.h1 {
+  @include blue-gradient;
+  background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.h2 {
+  font-weight: bold;
+}
+
+.h3 {
+  font-weight: bold;
+}
 .head {
-  //background gradient
+  background: gradient;
   background: -webkit-linear-gradient(
     240deg,
     rgb(0, 217, 255),
@@ -11,16 +37,29 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
 }
 
 .para {
-  color: var(--color-grey-dark-3);
+  color: var(--color-black);
   font-size: 1.5rem;
   font-weight: 700;
 }
 
+.pre {
+  
+  .code{
+    font-size: small;
+    font-weight: bold;
+    border: 15px solid;
+    padding: 50px;
+    margin: 20px;
+  }
+  
+}
+
 .div {
-  color: var(--color-grey-dark-2);
+  color: var(--color-black);
   font-size: 2rem;
 }
 
@@ -42,3 +81,5 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+

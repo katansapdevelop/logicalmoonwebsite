@@ -3,6 +3,7 @@ header {
   color: var(--color-grey-light-2);
   border-bottom: var(--line);
 
+
   .container {
     display: flex;
     justify-content: space-between;
@@ -45,7 +46,7 @@ header {
   }
 
   a:hover {
-    color: var(--color-purple);
+    color: var(--color-black);
     background: var(--color-white);
     border-radius: 0.5rem;
     font-weight: 700;
@@ -58,12 +59,17 @@ header {
     padding: 0 0.5em;
     text-decoration: none;
     font-size: 1.4rem;
-    color: var(--color-grey-dark-1);
+    color: var(--color-black);
   }
 
   p {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--color-grey-dark-2);
+    color: var(--color-black);
+
+    @include blue-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

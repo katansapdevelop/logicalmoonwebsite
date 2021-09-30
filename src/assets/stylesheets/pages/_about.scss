@@ -1,6 +1,45 @@
 .page-about {
   h1 {
-    color: var(--color-purple);
+    @include blue-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .reasons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  
+  }
+
+  .reasonitem{
+
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-left: 2rem;
+    justify-content: center;
+    text-align: center;
+    
+  }
+
+  .reasonitemtext{
+    color: #00d9ff;
+    text-align: center; 
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .material-icons {
+    font-family: 'Material Icons';
+    font-size: 50px;
+    color: #00d9ff;
+
+    :hover { 
+      fill:#00d9ff;
+    }
   }
 
   main {
@@ -8,12 +47,12 @@
   }
 
   header {
-    background-color: var(--color-purple);
+    //background-color: #6666ff;
   }
 
   header a,
   header p {
-    color: var(--color-grey-light-1);
+    color: black;
   }
 
   header a:hover {
@@ -22,5 +61,7 @@
 
   main p {
     margin-top: 5rem;
+    text-align: justify;
+    text-justify: inter-word;
   }
 }

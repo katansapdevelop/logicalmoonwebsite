@@ -1,4 +1,4 @@
-# Gatsby Sass Starter
+# Logical Moon Website
 
 A minimalistic Gatsby starter template featuring SASS and CSS 7-1 architecture. The project focusses on creating websites which are not only fast, but pretty too!
 

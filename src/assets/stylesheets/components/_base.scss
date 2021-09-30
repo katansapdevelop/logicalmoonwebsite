@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  font-family: "BioRhyme", serif;
+  font-family: 'IBM Plex Sans',sans-serif;
   font-weight: 200;
   //variables in CSS are written inside var function. This and bg size property will lead to narrow tiles because the bg gradient will only be for the body element, that is just one line currently, after that there will be tiling. To prevent it, we'll use the background-repeat property
   // background-image: linear-gradient(

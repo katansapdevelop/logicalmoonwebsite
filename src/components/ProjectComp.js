@@ -6,6 +6,8 @@ import Layout from "components/Layout";
 
 import projectPageStyles from "assets/stylesheets/modules/projects.module.scss";
 
+import "assets/stylesheets/remark-copy.scss";
+
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {

@@ -1,6 +1,9 @@
 .page-projects {
   h1 {
-    color: var(--color-yellow);
+    @include blue-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   // main h2 {
@@ -19,28 +22,35 @@
   // }
 
   .project-card {
-    color: var(--color-grey-dark-1);
-    background: var(--color-yellow);
-    padding: 10rem 2rem;
-    display: flex;
-    justify-content: space-between;
+    
+    color: var(--color-white);
+    //background-color: var(--color-black);
+    @include blue-gradient;
+    transform: translateY(-0.6rem);
+    padding: 3rem 2rem;
+    box-shadow: var(--shadow-dark);
 
     &:hover {
-      color: var(--color-white);
-      //background-color: var(--color-black);
-      @include blue-gradient;
+      @include pink-gradient;
+      color: var(--color-grey-dark-1);
       transform: translateY(-0.6rem);
-      box-shadow: var(--shadow-dark);
+      //background: #6666ff;
+      display: flex;
+      justify-content: space-between;
+    
       transition: all 0.2s;
     }
   }
-  header {
-    background-color: var(--color-yellow);
-  }
 
+
+  header p {
+    //color: var(--color-grey-light-1);
+    color:black;
+  }
+  
   a {
     text-decoration: none;
-    font-family: BioRhyme, sans-serif;
+    font-family: 'IBM Plex Sans',sans-serif;
   }
 
   main li {
