@@ -38,7 +38,21 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+
+    @include respond(phone) {
+      //width <= 600?
+      word-wrap: break-word;
+      display: none;
+    }
     
+  }
+
+  .nodeAddressbannerText{
+    @include respond(phone) {
+      //width <= 600?
+      word-wrap: break-word;
+      display: none;
+    }
   }
 
   .copyButton {

@@ -45,6 +45,20 @@ const Header = () => {
               About
             </AniLink>
           </li>
+          {/*
+          <li>
+            <AniLink
+              cover
+              direction="right"
+              to="/status/"
+              bg="#00d9ff"
+              duration={0.7}
+              className="header-link"
+            >
+              Status
+            </AniLink>
+          </li>
+          */}
           <li>
             <AniLink
               cover
@@ -56,19 +70,6 @@ const Header = () => {
               FAQ
             </AniLink>
           </li>
-          {/*}
-          <li>
-            <AniLink
-              cover
-              direction="right"
-              to="/contact/"
-              bg="#00d9ff"
-              duration={0.7}
-              className="header-link"
-            >
-              Contact
-            </AniLink>
-          </li> */}
         </ul>
       </Container>
     </header>
