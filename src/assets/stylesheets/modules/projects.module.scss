@@ -24,6 +24,7 @@
 .h3 {
   font-weight: bold;
 }
+
 .head {
   background: gradient;
   background: -webkit-linear-gradient(
@@ -83,3 +84,9 @@
 }
 
 
+table, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 5px;
+}

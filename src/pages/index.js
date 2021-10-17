@@ -35,7 +35,7 @@ const IndexPage = () => {
         <br/>
         <p className="nodeAddressbanner">Validator Address: </p>
         <div className="nodeAddressbanner">
-          <p>rv1qtzlupqghjyvdsp3nn0cpkdvmtrfe7ac8czump5r6hgm0rnlhvznj88xw7a</p>
+          <p className="nodeAddressbannerText">rv1qtzlupqghjyvdsp3nn0cpkdvmtrfe7ac8czump5r6hgm0rnlhvznj88xw7a</p>
           <button id="copyButton" className="copyButton" onClick={copyToClipboard} title="Copy">
             <div className="copyButtonIcon">
               <svg className="copyButtonIcon-img">

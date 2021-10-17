@@ -12,20 +12,21 @@ const AboutPage = () => {
       </Helmet>
       <Container>
         <h1>About Us</h1>
-        <p>The team at Logical Moon have been involved in the cryptocurrency scene since 2016 and have followed the 
-          Radix Project from very early on.  Although we are relative new comers to running a validator node, 
-          the team is composed of individuals with extensive experience in delivering/maintaining 
-          enterprise grade solutions across a variety of industries
+        <p>The team at Logical Moon are composed of two friends who are based out of Brisbane, Australia. We have been 
+          involved in the cryptocurrency scene since 2016 and have followed the Radix Project since December 2017.  
+          We both have extensive experience in delivering/maintaining enterprise grade solutions across a variety of 
+          industries and have a genuine passion for technology 
         </p>
         <p>
-          The node we have setup runs on Azure in Australia South East Region.  We also run a backup node, 
-          to fail over to, in the Australia East region to ensure high availability. 
-          We provide 24/7 support and leverage the Azure alerting capabilities to escalate to our team
-          to address any issues. We push to ensure the server is performant/secured and constantly review/ 
-          update our infrastructure accordingly  
+          The validator node itself was brought to life in September 2021 and we were able to quickly establish ourselves 
+          into the top 100 having been involved in an early investment group for Radix.
+          It currently runs on Azure in the Australia South East Region and we have a backup node constantly running 
+          in the Australia East region to ensure high availability. 
+          We provide 24/7 support and leverage Azure's alerting capabilities to escalate any issues to our team. We 
+          constantly push to ensure the server is performant/secured and review/update our infrastructure regularly  
         </p>
         <p>
-          We care about the network and the Radix project. To achieve a truly decentralised network, it is important
+          We care about the network, the community and ultimately the Radix project as a whole. To achieve a truly decentralised network, it is important
           to ensure there are enough nodes globally available and with a spread of stake distributed adequately amongst them.  
           For that reason if our node reaches 1% of total staked percentage, we will lock the node to ensure no further 
           stakes are accepted.  This strategy will remain in place for Logical Moon whilst we are in Olympia and will be re-evaluated in 2023 
