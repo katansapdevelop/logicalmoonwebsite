@@ -34,18 +34,18 @@ const AboutPage = () => {
         </p>
         <br/>
         <br/>
-        <div class="reasons">
-          <div class="reasonitem">
-            <div class="reasonitemtext">Low<br/>Fees</div>
+        <div className="reasons">
+          <div className="reasonitem">
+            <div className="reasonitemtext">Low<br/>Fees</div>
             <div><span class="material-icons">monetization_on</span></div>
           </div>
-          <div class="reasonitem">
-            <div class="reasonitemtext">High<br/>Availability</div>
-            <div><span class="material-icons">settings</span></div>
+          <div className="reasonitem">
+            <div className="reasonitemtext">High<br/>Availability</div>
+            <div><span className="material-icons">settings</span></div>
           </div>
-          <div class="reasonitem">
-            <div class="reasonitemtext">Secure<br/><br/></div>
-            <div><span class="material-icons">enhanced_encryption</span></div>
+          <div className="reasonitem">
+            <div className="reasonitemtext">Secure<br/><br/></div>
+            <div><span className="material-icons">enhanced_encryption</span></div>
           </div>
         </div>
         
