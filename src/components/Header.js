@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-
 import Container from "components/Container";
 
 

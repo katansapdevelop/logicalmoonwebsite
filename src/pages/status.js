@@ -1,10 +1,41 @@
-import React from "react";
+import React , { useState, useEffect  } from "react";
 import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
 import Container from "components/Container";
 
 const StatusPage = () => {
+ const [upTimePercentage, setUptimePercentage] = useState(0.00);
+ const [totalDelegatedStake, setTotalDelegatedStake] = useState(0);
+
+ useEffect(() => {
+  let jsonRPCMethodBody = {
+    "jsonrpc": "2.0",
+    "id": "0",
+    'Content-Type': 'application/json',
+    "method": "validators.lookup_validator",
+    "params": {
+        "validatorAddress": "rv1qtzlupqghjyvdsp3nn0cpkdvmtrfe7ac8czump5r6hgm0rnlhvznj88xw7a"
+    }
+  };
+
+  fetch("https://mainnet.radixdlt.com/archive",{
+    method: 'POST',
+    headers: {
+      'x-radixdlt-method': 'validators.lookup_validator'
+    },
+    body: JSON.stringify(jsonRPCMethodBody)
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then(data => {
+      setUptimePercentage(data.result.uptimePercentage);
+      setTotalDelegatedStake(Math.round(data.result.totalDelegatedStake/1000000000000000000));
+    })
+    .catch(error => console.error(error));
+  });
+
   return (
     <Layout pageName="status">
       <Helmet>
@@ -12,18 +43,18 @@ const StatusPage = () => {
       </Helmet>
       <Container>
         <h1>Status</h1>
-        <div class="statuslist">
-          <article data-icon="⚙️" class="article1">
+        <div className="statuslist">
+          <article data-icon="⚙️" className="article1">
             <h3>Up Time %</h3>
-            <p>99.96</p>
+            <p>{upTimePercentage}</p>
           </article>
-          <article data-icon="💰" class="article2">
+          <article data-icon="💰" className="article2">
             <h3>Total Delegated Stake</h3>
-            <p>8,505,174</p>
+            <p>{totalDelegatedStake}</p>
           </article>
-          <article data-icon="❤️" class="article3">
+          <article data-icon="❤️" className="article3">
             <h3>Server Health</h3>
-            <p id="ServerHealth">UP</p>
+            <p>UP</p>
           </article>
         </div>
 
