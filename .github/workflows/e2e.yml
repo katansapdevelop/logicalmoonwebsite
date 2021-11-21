@@ -42,4 +42,11 @@ jobs:
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
-      - run: npm run e2e:remote:ci
+      - name: Cypress run [Chrome]
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          start: npm run e2e:remote:ci
+          wait-on: "https://radixlogicalmoon.com"
+      # - name: 
+      #   run: npm run e2e:remote:ci
