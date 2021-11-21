@@ -15,7 +15,7 @@ module.exports = (on, config) => {
     fixturesFolder: 'cypress/fixtures',
     integrationFolder: 'cypress/specs',
     screenshotsFolder: 'cypress/screenshots',
-    videosFolder: 'cypress/videos',
+    // videosFolder: 'cypress/videos',
     supportFile: 'cypress/support/index.ts',
   })
 }

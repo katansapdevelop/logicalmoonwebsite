@@ -38,10 +38,10 @@ jobs:
           always-auth: true
           node-version: 14.18.0
           # registry-url: https://registry.npmjs.org
-      # - uses: actions/cache@v2
-      #   with:
-      #     path: '**/node_modules'
-      #     key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
       - name: Cypress run [Chrome]
         uses: cypress-io/github-action@v2
         with:
