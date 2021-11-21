@@ -10,24 +10,24 @@ on:
 
 
 jobs:
-  install:
-    name: Install
-    runs-on: ubuntu-20.04
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          always-auth: true
-          node-version: 14.18.0
-          registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
-      - run: npm i
+  # install:
+  #   name: Install
+  #   runs-on: ubuntu-20.04
+  #   timeout-minutes: 5
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         always-auth: true
+  #         node-version: 14.18.0
+  #         registry-url: https://registry.npmjs.org
+  #     - uses: actions/cache@v2
+  #       with:
+  #         path: '**/node_modules'
+  #         key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+  #     - run: npm i
   e2e:
-    needs: install
+    # needs: install
     name: E2E
     runs-on: ubuntu-20.04
     timeout-minutes: 10
@@ -37,16 +37,17 @@ jobs:
         with:
           always-auth: true
           node-version: 14.18.0
-          registry-url: https://registry.npmjs.org
-      - uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+          # registry-url: https://registry.npmjs.org
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: '**/node_modules'
+      #     key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
       - name: Cypress run [Chrome]
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
           start: npm run e2e:remote:ci
           wait-on: "https://radixlogicalmoon.com"
+          config-file: "cypress/cypress.remote.json"
       # - name: 
       #   run: npm run e2e:remote:ci
