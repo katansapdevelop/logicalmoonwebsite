@@ -45,7 +45,7 @@ jobs:
           browser: chrome
           start: npm run e2e:remote:ci
           config-file: "cypress/cypress.remote.json"
-      - run: ls
+      - run: ls cypress
         if: failure()
       # - name: 
       #   run: npm run e2e:remote:ci
