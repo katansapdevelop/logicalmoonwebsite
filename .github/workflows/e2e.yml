@@ -44,8 +44,16 @@ jobs:
         with:
           browser: chrome
           start: npm run e2e:remote:ci
-          config-file: "cypress/cypress.remote.json"
-      - run: ls cypress
-        if: failure()
-      # - name: 
-      #   run: npm run e2e:remote:ci
+          config-file: 'cypress/cypress.remote.json'
+      # - run: ls cypress
+      #   if: failure() || success()
+      - if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - if: always()
+        uses: actions/upload-artifact@v1
+        with:
+          name: cypress-videos
+          path: cypress/videos
