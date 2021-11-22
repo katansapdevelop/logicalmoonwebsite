@@ -46,5 +46,6 @@ jobs:
           start: npm run e2e:remote:ci
           config-file: "cypress/cypress.remote.json"
       - run: ls
+        if: failure()
       # - name: 
       #   run: npm run e2e:remote:ci
