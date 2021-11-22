@@ -1,4 +1,4 @@
-describe.skip('About page', () => {
+describe('About page', () => {
   before(() => {
     cy.visit('/about').get('main').injectAxe()
   })
