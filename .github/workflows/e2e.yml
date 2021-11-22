@@ -44,7 +44,7 @@ jobs:
         with:
           browser: chrome
           start: npm run e2e:remote:ci
-          wait-on: "https://radixlogicalmoon.com"
           config-file: "cypress/cypress.remote.json"
+      - run: ls
       # - name: 
       #   run: npm run e2e:remote:ci
