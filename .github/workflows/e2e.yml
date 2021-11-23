@@ -26,7 +26,7 @@ jobs:
           browser: chrome
           start: npm run e2e:remote:ci
           config-file: 'cypress/cypress.remote.json'
-      - if: always()
+      - if: failure()
         uses: actions/upload-artifact@v1
         with:
           name: cypress-screenshots
@@ -36,7 +36,7 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
-      - if: always()
+      - if: failure()
         uses: actions/upload-artifact@v1
         with:
           name: cypress-snapshots

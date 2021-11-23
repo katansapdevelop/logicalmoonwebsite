@@ -1,6 +1,6 @@
 describe('faq page', () => {
   before(() => {
-    cy.visit('/projects').get('main').wait(2000).injectAxe()
+    cy.visit('/projects').get('main').injectAxe()
   })
   it('should show the page', () => {
     cy.get('main').compareSnapshot('faq-page', 0.1)
