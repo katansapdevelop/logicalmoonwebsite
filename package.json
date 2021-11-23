@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "author": "Katan Patel",
   "dependencies": {
-    "cypress-visual-regression": "^1.6.3",
     "gatsby": "^2.19.43",
     "gatsby-plugin-favicons": "^2.0.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -33,6 +32,7 @@
     "clipboardy": "^2.3.0",
     "cypress": "^8.7.0",
     "cypress-axe": "^0.13.0",
+    "cypress-visual-regression": "^1.6.3",
     "env-cmd": "^10.1.0",
     "gatsby-remark-code-buttons": "^2.0.7",
     "gh-pages": "^2.2.0",

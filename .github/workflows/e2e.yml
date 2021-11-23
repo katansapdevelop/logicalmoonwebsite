@@ -1,10 +1,8 @@
 name: Logical Moon Website E2E
 
 on:
-  push:
   schedule:
   - cron: '0 */2 * * *'
-
 
 jobs:
   e2e:
