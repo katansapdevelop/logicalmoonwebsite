@@ -4,8 +4,5 @@
     "runMode": 2,
     "openMode": 1
   },
-  "env": {
-    "failSilently": false
-  },
   "screenshotOnRunFailure": false
 }
