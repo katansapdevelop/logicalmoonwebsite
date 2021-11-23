@@ -2,6 +2,9 @@ describe('Home page', () => {
   before(() => {
     cy.visit('/').get('main').injectAxe()
   })
+  it('should show the home page', () => {
+    cy.get('main').compareSnapshot('main', 0.1)
+  })
   it('should show a heading', () => {
     cy.contains('h1', 'Hello From Logical Moon!')
   })

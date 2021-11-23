@@ -31,7 +31,7 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - if: always()
+      - if: failure()
         uses: actions/upload-artifact@v1
         with:
           name: cypress-videos

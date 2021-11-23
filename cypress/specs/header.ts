@@ -3,6 +3,9 @@ describe('Header', () => {
     before(() => {
       cy.visit('/').get('header').injectAxe()
     })
+    it('should show the header', () => {
+      cy.get('header').compareSnapshot('header', 0.1)
+    })
     it.skip('should have no accessibility violations', () => {
       cy.checkA11y()
     })

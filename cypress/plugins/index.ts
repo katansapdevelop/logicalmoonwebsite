@@ -1,3 +1,4 @@
+const getCompareSnapshotsPlugin = require('cypress-visual-regression/dist/plugin')
 /* eslint-disable arrow-body-style */
 // https://docs.cypress.io/guides/guides/plugins-guide.html
 
@@ -11,6 +12,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 
 module.exports = (on, config) => {
+  getCompareSnapshotsPlugin(on, config)
   return Object.assign({}, config, {
     fixturesFolder: 'cypress/fixtures',
     integrationFolder: 'cypress/specs',
@@ -18,3 +20,13 @@ module.exports = (on, config) => {
     supportFile: 'cypress/support/index.ts',
   })
 }
+
+// import type Cypress from 'cypress';
+// import getCompareSnapshotsPlugin from 'cypress-visual-regression/dist/plugin';
+
+// export default function configurePlugins(
+//   on: Cypress.PluginEvents,
+//   config: Cypress.PluginConfigOptions,
+// ) {
+//   getCompareSnapshotsPlugin(on, config);
+// }

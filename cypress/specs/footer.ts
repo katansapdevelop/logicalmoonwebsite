@@ -3,6 +3,9 @@ describe('Footer', () => {
     before(() => {
       cy.visit('/').get('footer').injectAxe()
     })
+    it('should show the footer', () => {
+      cy.get('footer').compareSnapshot('footer', 0.1)
+    })
     it.skip('should have no accessibility violations', () => {
       cy.checkA11y()
     })
