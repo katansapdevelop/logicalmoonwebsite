@@ -37,7 +37,7 @@ const AboutPage = () => {
         <div className="reasons">
           <div className="reasonitem">
             <div className="reasonitemtext">Low<br/>Fees</div>
-            <div><span class="material-icons">monetization_on</span></div>
+            <div><span className="material-icons">monetization_on</span></div>
           </div>
           <div className="reasonitem">
             <div className="reasonitemtext">High<br/>Availability</div>

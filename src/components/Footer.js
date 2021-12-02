@@ -51,9 +51,8 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <svg className="footer__icons-item">
-              <use xlinkHref={`#${twitter.id}`} />
-            </svg>
+          <img className="footer__icons-item" src={twitter} alt="Twitter"/> 
+
           </a>
 
           {/*

@@ -7,6 +7,8 @@ import Container from "components/Container";
 import img_radix_moon from "assets/images/moon-radix.png";
 import img_copy from "assets/images/SVG/copy.svg";
 
+console.log("This is the image: " + img_copy); 
+
 const IndexPage = () => {  
   const copyTextRef = React.useRef(null);
   
@@ -38,9 +40,7 @@ const IndexPage = () => {
           <p className="nodeAddressbannerText">rv1qtzlupqghjyvdsp3nn0cpkdvmtrfe7ac8czump5r6hgm0rnlhvznj88xw7a</p>
           <button id="copyButton" className="copyButton" onClick={copyToClipboard} title="Copy">
             <div className="copyButtonIcon">
-              <svg className="copyButtonIcon-img">
-                <use xlinkHref={`#${img_copy.id}`} />
-              </svg> 
+              <img src={img_copy} alt="Copy"/>   
             </div>           
           </button>
         </div>
