@@ -4,31 +4,40 @@
   "version": "1.0.0",
   "author": "Katan Patel",
   "dependencies": {
-    "gatsby": "2.32.13",
-    "gatsby-plugin-favicons": "^2.0.0",
-    "gatsby-plugin-google-fonts": "^1.0.1",
-    "gatsby-plugin-react-helmet": "3.10.0",
-    "gatsby-plugin-resolve-src": "^2.0.0",
-    "gatsby-plugin-sass": "2.8.0",
-    "gatsby-plugin-sharp": "2.14.4",
-    "gatsby-plugin-svg-sprite": "^2.0.1",
-    "gatsby-plugin-transition-link": "1.20.5",
-    "gatsby-remark-images": "3.11.1",
-    "gatsby-remark-relative-images": "^0.3.0",
-    "gatsby-source-filesystem": "2.11.1",
-    "gatsby-transformer-remark": "2.16.1",
-    "gsap": "3.8.0",
-    "node-sass": "4.14.1",
-    "prop-types": "^15.7.2",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "react-helmet": "^5.2.1",
-    "react-modal": "3.14.4"
+    "gatsby": "2.20.35",
+    "gatsby-plugin-favicons": "2.0.0",
+    "gatsby-plugin-google-fonts": "1.0.1",
+    "gatsby-plugin-react-helmet": "3.2.5",
+    "gatsby-plugin-resolve-src": "2.1.0",
+    "gatsby-plugin-sass": "2.2.4",
+    "gatsby-plugin-sharp": "2.6.0",
+    "gatsby-plugin-svg-sprite": "2.0.1",
+    "gatsby-plugin-transition-link": "1.18.0",
+    "gatsby-remark-images": "3.3.0",
+    "gatsby-remark-relative-images": "0.3.0",
+    "gatsby-source-filesystem": "2.0.28",
+    "gatsby-transformer-remark": "2.8.4",
+    "gsap": "3.2.6",
+    "node-sass": "4.14.0",
+    "prop-types": "15.7.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-helmet": "5.2.1",
+    "react-modal": "3.14.3"
   },
   "devDependencies": {
-    "env-cmd": "^10.1.0",
-    "gatsby-remark-code-buttons": "^2.0.7",
-    "gh-pages": "^2.2.0"
+    "@testing-library/cypress": "8.0.2",
+    "@types/node": "14.17.34",
+    "axe-core": "4.3.5",
+    "clipboardy": "2.3.0",
+    "cypress": "8.7.0",
+    "cypress-axe": "0.13.0",
+    "cypress-visual-regression": "1.6.3",
+    "env-cmd": "10.1.0",
+    "gatsby-remark-code-buttons": "2.0.7",
+    "gh-pages": "2.2.0",
+    "start-server-and-test": "1.14.0",
+    "typescript": "4.5.2"
   },
   "keywords": [
     "gatsby",
@@ -38,11 +47,16 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "develop": "env-cmd -f .env.development gatsby develop",
+    "e2e:local": "start-server-and-test develop http://localhost:8000/ 'npm run cy:open -- --config-file cypress/cypress.local.json --env type=base'",
+    "e2e:local:ci": "start-server-and-test develop http://localhost:8000/ 'npm run cy:run -- --config-file cypress/cypress.local.json' --env type=actual",
+    "e2e:remote": "npm run cy:open -- --config-file cypress/cypress.remote.json --env type=base",
+    "e2e:remote:ci": "npm run cy:run -- --config-file cypress/cypress.remote.json --env type=actual",
     "lint": "Get started linting your code with Eslint and stylelint",
     "clean": "rm -rf .cache && rm -rf public",
     "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
-    "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
@@ -53,5 +67,8 @@
   },
   "bugs": {
     "url": "https://github.com/a2zarslaan/gatsby-starter-sasslan/issues"
+  },
+  "engines": {
+    "node": ">=14.18.0"
   }
 }

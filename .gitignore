@@ -1,7 +1,5 @@
 # e2e artefacts
 cypress/videos/*
-cypress/screenshots/*
-cypress/snapshots/*
 
 # Logs
 logs

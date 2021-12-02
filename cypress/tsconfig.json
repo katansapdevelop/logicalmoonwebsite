@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "types": [
+      "node",
+      "cypress",
+      "cypress-axe",
+      "@testing-library/cypress"
+    ],
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
