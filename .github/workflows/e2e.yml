@@ -1,0 +1,41 @@
+name: Logical Moon Website E2E
+
+on:
+  schedule:
+  - cron: '0 */2 * * *'
+
+jobs:
+  e2e:
+    name: E2E
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.18.0
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Cypress run [Chrome]
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          start: npm run e2e:remote:ci
+          config-file: 'cypress/cypress.remote.json'
+      - if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: cypress-videos
+          path: cypress/videos
+      - if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots

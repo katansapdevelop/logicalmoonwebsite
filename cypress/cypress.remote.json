@@ -1,0 +1,8 @@
+{
+  "baseUrl": "https://radixlogicalmoon.com/",
+  "retries": {
+    "runMode": 2,
+    "openMode": 1
+  },
+  "screenshotOnRunFailure": false
+}
