@@ -7,6 +7,7 @@ import Container from "components/Container";
 const StatusPage = () => {
  const [upTimePercentage, setUptimePercentage] = useState(0.00);
  const [totalDelegatedStake, setTotalDelegatedStake] = useState(0);
+ const [missedProposals, setMissedProposals] = useState(0);
 
  useEffect(() => {
   let jsonRPCMethodBody = {
@@ -32,6 +33,7 @@ const StatusPage = () => {
     .then(data => {
       setUptimePercentage(data.result.uptimePercentage);
       setTotalDelegatedStake(Math.round(data.result.totalDelegatedStake/1000000000000000000));
+      setMissedProposals(data.result.proposalsMissed);
     })
     .catch(error => console.error(error));
   });
@@ -55,6 +57,10 @@ const StatusPage = () => {
           <article data-icon="❤️" className="article3">
             <h3>Server Health</h3>
             <p>UP</p>
+          </article>
+          <article data-icon="⚡" className="article4">
+            <h3>Missed Proposals</h3>
+            <p>{missedProposals}</p>  
           </article>
         </div>
 

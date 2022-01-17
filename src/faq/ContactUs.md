@@ -1,6 +1,6 @@
 ---
 title: "How Do We Contact the Team?"
-date: "17/09/2021"
+date: "17/01/2022"
 type: "Contact"
 ---
 ### Feedback
@@ -14,4 +14,9 @@ You can reach out to us via our twitter channel [@radixlogical](https://twitter.
 <br /> 
 
 ### Discord 
-You can also find us about on the official [Radix Discord Server](https://discord.gg/WkB2USt). Look out for user Katan-LogicalMoon#4027 from our team and please make sure to say "hi"
+You can also find us about on the official [Radix Discord Server](https://discord.gg/WkB2USt). Look out for user ```#Katan-LogicalMoon``` or ```#Rory-LogicalMoon``` from our team and please make sure to say "hi"
+
+<br /> 
+
+### RadixTalk
+We've just registered with [RadixTalk](https://radixtalk.com/) also.  As an enduring forum for all radix related chat.  Our user is ```radixlogicalmoon```.  

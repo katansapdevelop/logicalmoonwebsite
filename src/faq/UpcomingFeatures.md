@@ -10,4 +10,3 @@ We are pleased to announce that from 16/11/2021 we will be partnering with [OCIS
 <br /> 
 
 Now for the cool bit, anyone staking with a partner validator will be eligible to a further 10% as part of the airdrop. So get on board and start staking to really get the Radix network going and earn some sweet $OCI. 
-
