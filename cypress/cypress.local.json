@@ -4,5 +4,6 @@
     "runMode": 2,
     "openMode": 1
   },
-  "screenshotOnRunFailure": false
+  "screenshotOnRunFailure": false,
+  "chromeWebSecurity": false
 }

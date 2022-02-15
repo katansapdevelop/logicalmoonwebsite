@@ -32,7 +32,7 @@ const IndexPage = () => {
         <p className="cover">
           <img src={img_radix_moon} alt="Logical Moon Logo" />
         </p>
-        <h1 className="heading">Hello From Logical Moon!</h1>
+        <h1 className="heading">Stake With Logical Moon!</h1>
         <p className="banner">Top 100 Radix Validator Node - Live on Mainnet</p>
         <br/>
         <p className="nodeAddressbanner">Validator Address: </p>

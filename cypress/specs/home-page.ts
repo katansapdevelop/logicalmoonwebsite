@@ -6,7 +6,7 @@ describe('Home page', () => {
     cy.get('main').compareSnapshot('main', 0.1)
   })
   it('should show a heading', () => {
-    cy.contains('h1', 'Hello From Logical Moon!')
+    cy.contains('h1', 'Stake With Logical Moon!')
   })
   it.skip('should have no accessibility violations', () => {
     cy.checkA11y()
