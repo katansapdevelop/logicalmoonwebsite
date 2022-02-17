@@ -34,6 +34,7 @@ const IndexPage = () => {
         </p>
         <h1 className="heading">Stake With Logical Moon!</h1>
         <p className="banner">Top 100 Radix Validator Node - Live on Mainnet</p>
+        <p className="animateCharacterBanner">Our fees have reduced to 0.75% from 17/02/2022</p>
         <br/>
         <p className="nodeAddressbanner">Validator Address: </p>
         <div className="nodeAddressbanner">

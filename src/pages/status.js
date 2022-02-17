@@ -45,6 +45,7 @@ const StatusPage = () => {
       </Helmet>
       <Container>
         <h1>Status</h1>
+        {/*
         <div className="statuslist">
           <article data-icon="⚙️" className="article1">
             <h3>Up Time %</h3>
@@ -63,7 +64,41 @@ const StatusPage = () => {
             <p>{missedProposals}</p>  
           </article>
         </div>
+        */}
 
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Up Time %</h3>
+      <p>{upTimePercentage}</p>
+      <p>Some text</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Delegated Stake</h3>
+      <p>{totalDelegatedStake}</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Server Health</h3>
+      <p>UP</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>Missed Proposals</h3>
+      <p>{missedProposals}</p>
+      <p>Some text</p>
+    </div>
+  </div>
+</div>
         
       </Container>
     </Layout>
