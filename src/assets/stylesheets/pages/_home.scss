@@ -1,8 +1,7 @@
 .page-home {
   h1 {
-    
     font-size: 6rem;
-    font-family: 'IBM Plex Sans',sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 900;
     display: flex;
     align-items: center;
@@ -22,7 +21,6 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    
   }
 
   .banner {
@@ -44,10 +42,9 @@
       word-wrap: break-word;
       display: none;
     }
-    
   }
 
-  .nodeAddressbannerText{
+  .nodeAddressbannerText {
     @include respond(phone) {
       //width <= 600?
       word-wrap: break-word;
@@ -55,32 +52,34 @@
     }
   }
 
-
-  .animateCharacterBanner
-{
-  background-image: linear-gradient(
-    240deg, #00d9ff, #1ae0cc, #42d5eb, #5e95d9, #6666ff
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 3s linear infinite;
-  display: flex;
+  .animateCharacterBanner {
+    background-image: linear-gradient(
+      240deg,
+      #00d9ff,
+      #1ae0cc,
+      #42d5eb,
+      #5e95d9,
+      #6666ff
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 3s linear infinite;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-}
-
-@keyframes textclip {
-  to {
-    background-position: 200% center;
   }
-}
 
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
 
   .copyButton {
     color: white;
@@ -90,24 +89,23 @@
   }
 
   .copyButtonIcon {
-    fill:#6666ff;
+    fill: #6666ff;
 
     :hover {
-      fill:#00d9ff;
+      fill: #00d9ff;
     }
 
-    &-img{
+    &-img {
       margin: 0;
       height: 3rem;
       width: 3rem;
-      fill:#6666ff;   
+      fill: #6666ff;
     }
 
-    :hover path{
+    :hover path {
       color: grey;
-      fill:grey;
-      stroke: grey;      
-
+      fill: grey;
+      stroke: grey;
     }
 
     @include respond(tab-port) {
@@ -121,10 +119,9 @@
       height: 5rem;
       width: 5rem;
     }
-
   }
 
-  .copyText{
+  .copyText {
     color: #6666ff;
     padding-left: 1rem;
     opacity: 0;

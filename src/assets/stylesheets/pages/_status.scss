@@ -1,19 +1,20 @@
 .page-status {
   h1 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     @include blue-gradient;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-
   .material-icons {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-size: 50px;
     color: #00d9ff;
 
-    :hover { 
-      fill:#00d9ff;
+    :hover {
+      fill: #00d9ff;
     }
   }
 
@@ -35,155 +36,57 @@
     text-align: justify;
     text-justify: inter-word;
   }
-  
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 23%;
-  padding: 0 10px;
-}
 
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
+  /* Float four columns side by side */
   .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-
-  $art-w: 22.5em;
-  $art-h: .5*$art-w;
-  $mid-d: 1em;
-  $num-w: 4.5em;
-  $num-h: 2*$num-w;
-  $num-s: 2;
-  $num-l: 2;
-  $num-r: .75em;
-  $ico-s: 3;
-  
-  .article1{
-    --slist: #00d9ff 0, #1ae0cc;
+    float: left;
+    width: 23%;
+    padding: 0 10px;
   }
 
-  .article2{
-    --slist: #42d5eb 0, #6666ff;
+  /* Remove extra left and right margins, due to padding */
+  .row {
+    margin: 0 -5px;
   }
 
-  .article3{
-    --slist: #5e95d9 0, #00d9ff;
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
-  .article4{
-    --slist: #00d9ff 0, #1ae0cc;
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
   }
-  
-  .statuslist {
-    --wide: 1;
-    --p: var(--narr, 0);
-    --q: calc(1 - var(--p));
-    display: grid;
-    grid-template-columns: repeat(calc(var(--wide) + 1), 1fr);
-    grid-gap: calc(var(--p)*.5em) 2.5em;
-    padding: 0 calc(var(--q)*.75em);
-    
-    
-    @media (max-width: 768px) { --wide: 0 }
-    
-    @media (max-width: 400px) { --narr: 1 }
 
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
 
-    article {
-      --i: var(--parity, 0);
-      --j: calc(1 - var(--i));
-      --s: calc(1 - 2*var(--i));
-      box-sizing: border-box;
-      display: grid;
-      grid-auto-flow: column;
-      grid-gap: .5em $num-l*$num-s*1em;
-      justify-self: var(--parity, self-end);
-      position: relative;
-      padding: calc(.5*var(--q)*#{$art-h - $num-s*$num-w} + var(--p)*#{$num-l*$num-s*1em}) 0 .5*($art-h - $num-s*$num-w);
-      width: calc(var(--q)*#{$art-w} + var(--p)*100%); min-height: $art-h;
-      transform: translatey(calc(var(--wide)*var(--i)*.3125*#{$art-h}));
-      transform-style: preserve-3d;
-      background: radial-gradient(at calc(var(--j)*100%), rgba(#000, .43), transparent 70%) calc(var(--j)*100%) 50%/ calc(var(--q)*.625em) 105% no-repeat;
-      font: 1em/ 1.25 oswald, sans-serif;
-      counter-increment: c;
-      
-      &:before {
-        position: absolute;
-        right: calc(var(--q)*(var(--i)*100% - var(--i)*#{$num-w}));
-        bottom: calc(var(--q)*50%);
-        width: calc(var(--q)*#{$num-w} + var(--p)*100%);
-        height: calc(var(--q)*#{$num-h} + var(--p)*100%);
-        border-radius: $num-r $num-r 0 0;
-        transform-origin: calc(var(--j)*100%) 100%;
-        transform: rotate(calc(var(--s)*var(--q)*-90deg)) 
-          translate3d(calc(var(--s)*var(--q)*50%), 0, -1px);
-        background: linear-gradient(#fff $num-l*1em, var(--slist));
-        font-size: $num-s*1em;
-        line-height: $num-l;
-        text-align: center;
-        filter: drop-shadow(calc(var(--s)*var(--q)*-.25em) -.25em .5em rgba(#000, .5));
-        content: ' '
-      }
-      
-      &:after {
-        grid-column: calc(1 + var(--i));
-        grid-row: 1/ span calc(2 - var(--p));
-        align-self: center;
-        font-size: $ico-s*1em;
-        text-align: left;
-        filter: grayscale(1);
-        content: attr(data-icon)
-      }
-      
-      &:nth-of-type(2n) {
-        --parity: 1;
-      }
-   
-   
-      h3, p {
-        box-sizing: border-box;
-        padding: .125em .625rem;
-        text-align: var(--narr, var(--parity, right));
-        text-align: center;
-        color: #fff;
-      }
-      
-      h3 {
-        align-self: center;
-        text-align: center;
-        text-transform: uppercase;
-      }
-      
-      p {
-        grid-column: calc(1 + var(--j)*var(--q))/ span calc(1 + var(--p));
-        grid-row: 2;
-      }  
+    h3 {
+      color: #6666ff;
+    }
+    p{
+      margin-top: 3rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    .FontAwesomeIcon{
+      margin-top: 3rem;
+      width: 25%; 
+      height: auto; 
+      text-align: center;
+      box-sizing: inherit;
     }
 
   }
-  
-  
-} 
+}
