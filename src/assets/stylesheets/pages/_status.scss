@@ -40,7 +40,7 @@
   /* Float four columns side by side */
   .column {
     float: left;
-    width: 23%;
+    width: 18%;
     padding: 0 10px;
   }
 
@@ -59,7 +59,7 @@
   /* Responsive columns */
   @media screen and (max-width: 600px) {
     .column {
-      width: 100%;
+      width: 95%;
       display: block;
       margin-bottom: 20px;
     }
@@ -67,26 +67,88 @@
 
   /* Style the counter cards */
   .card {
+    position: relative;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
+    margin-top: 2rem;
 
     h3 {
       color: #6666ff;
     }
-    p{
-      margin-top: 3rem;
+    p {
+      margin-top: 1rem;
       text-align: center;
       font-weight: bold;
     }
-    .FontAwesomeIcon{
-      margin-top: 3rem;
-      width: 25%; 
-      height: auto; 
-      text-align: center;
-      box-sizing: inherit;
-    }
 
+
+    .tooltip {
+      visibility: hidden;
+
+      background-color: #f1f1f1;
+      color: black;
+      text-align: center;
+
+      width: 120px;
+      padding: 5px;
+      border-radius: 6px;
+
+      display: block;
+      position: absolute;
+      z-index: 1;
+      margin-left: 95%;
+
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      box-shadow: 0px 0px 8px -1px black;
+      -moz-box-shadow: 0px 0px 8px -1px black;
+      -webkit-box-shadow: 0px 0px 8px -1px black;
+    }
+  }
+
+  .tooltiptext{
+    font-weight: lighter;
+    font-size: medium;
+  }
+
+  .card:hover .tooltip {
+    visibility: visible;
+  }
+
+
+  #tailShadow {
+    background-color: transparent;
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 16px;
+    left: -8px;
+    z-index: -10;
+    box-shadow: 0px 0px 8px 1px black;
+    -moz-box-shadow: 0px 0px 8px 1px black;
+    -webkit-box-shadow: 0px 0px 8px 1px black;
+  }
+
+  #tail1 {
+    width: 0px;
+    height: 0px;
+    border: 10px solid;
+    border-color: transparent #73a7f0 transparent transparent;
+    position: absolute;
+    top: 8px;
+    left: -20px;
+  }
+
+  #tail2 {
+    width: 0px;
+    height: 0px;
+    border: 10px solid;
+    border-color: transparent #f1f1f1 transparent transparent;
+    position: absolute;
+    left: -18px;
+    top: 8px;
   }
 }

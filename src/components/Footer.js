@@ -24,7 +24,7 @@ const Footer = () => {
       <Container>
         {/* add author's name in footer by uncommenting the following line*/}
         {/* <p>Made by {data.site.siteMetadata.author} using Gatsby</p> */}
-        <p>© 2021 {data.site.siteMetadata.title}</p>
+        <p>© 2022 {data.site.siteMetadata.title}</p>
         <p>
           Made with{" "}
           <span role="img" aria-label="heart">
