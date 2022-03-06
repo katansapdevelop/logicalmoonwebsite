@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Helmet from "react-helmet";
-
 import Layout from "components/Layout";
 import Container from "components/Container";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeartCrack } from "@fortawesome/free-solid-svg-icons";
 import { faPooStorm } from "@fortawesome/free-solid-svg-icons";
 import { faMedal } from "@fortawesome/free-solid-svg-icons";
-
 import { faHourglassHalf } from "@fortawesome/free-solid-svg-icons";
 import { faNetworkWired } from "@fortawesome/free-solid-svg-icons";
 import { faServer } from "@fortawesome/free-solid-svg-icons";
@@ -26,8 +23,7 @@ const StatusPage = () => {
   const [epochData, setEpochData] = useState({});
   const [statusData, setStatusData] = useState({});
 
-
-  const getEpochData = async() => {
+  const getEpochData = async () => {
     let jsonBody = {
       network_identifier: {
         network: "mainnet",
@@ -52,14 +48,11 @@ const StatusPage = () => {
       .then((data) => {
         setCurrentEpoch(data.ledger_state.epoch);
         setCurrentEpochProgress(Math.round(data.ledger_state.round / 100));
-
       })
       .catch((error) => console.error(error));
-  }
+  };
 
-  const getStatusData = async() => {
-  
-
+  const getStatusData = async () => {
     fetch(
       "https://lm-prod-func-australiaeast.azurewebsites.net/api/nodes/latest",
       {
@@ -70,43 +63,49 @@ const StatusPage = () => {
         return response.json();
       })
       .then((data) => {
-        var validatorNodeHealth = "DOWN"; 
+        var validatorNodeHealth = "DOWN";
         if (data.nodes[0].registeredValidator === true) {
           validatorNodeHealth = data.nodes[0].status;
         }
         if (data.nodes[1].registeredValidator === true) {
-          validatorNodeHealth = data.nodes[1].status; 
+          validatorNodeHealth = data.nodes[1].status;
         }
 
-        var recordedAt = new Date(data.recordedAt).toLocaleString()
+        const options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        var recordedAt =
+          new Date(data.recordedAt).toLocaleDateString(undefined, options) +
+          " " +
+          new Date(data.recordedAt).toLocaleTimeString(undefined);
         var status = {
-          "upTimePercentage": data.uptimePercentage,
-          "proposalsMissed": data.proposalsMissed,
-          "delegatedStake": data.delegatedStake.toLocaleString(),
-          "validatorRank": data.position,
-          "totalValidators": data.totalValidators,
-          "totalPeers": data.totalPeers,
-          "totalDelegatedStake": data.totalDelegatedStake.toLocaleString(),
-          "lastRecordedAt" : recordedAt,
-          "serverHealth" : validatorNodeHealth
+          upTimePercentage: data.uptimePercentage,
+          proposalsMissed: data.proposalsMissed,
+          delegatedStake: data.delegatedStake.toLocaleString(),
+          validatorRank: data.position,
+          totalValidators: data.totalValidators,
+          totalPeers: data.totalPeers,
+          totalDelegatedStake: data.totalDelegatedStake.toLocaleString(),
+          lastRecordedAt: recordedAt,
+          serverHealth: validatorNodeHealth,
         };
         setStatusData(status);
       })
       .catch((error) => console.error(error));
-  }
+  };
 
   useEffect(() => {
     getEpochData();
     getStatusData();
 
-
-    const interval=setInterval(()=>{
+    const interval = setInterval(() => {
       getEpochData();
-     },30000)
-       
-       
-     return()=>clearInterval(interval)
+    }, 30000);
 
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -272,7 +271,7 @@ const StatusPage = () => {
               </span>
               <h3>Delegated </h3>
               <h3>Stake</h3>
-              <p>{ statusData.totalDelegatedStake}</p>
+              <p>{statusData.totalDelegatedStake}</p>
               <FontAwesomeIcon icon={faPiggyBank} size="3x" color="#6666ff" />
             </div>
           </div>
