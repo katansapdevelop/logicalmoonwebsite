@@ -20,17 +20,14 @@ import { faBarsProgress } from "@fortawesome/free-solid-svg-icons";
 import { faPiggyBank } from "@fortawesome/free-solid-svg-icons";
 
 const StatusPage = () => {
-  const [upTimePercentage, setUptimePercentage] = useState(0.0);
-  const [totalDelegatedStake, setTotalDelegatedStake] = useState(0);
-  const [missedProposals, setMissedProposals] = useState(0);
   const [currentEpoch, setCurrentEpoch] = useState(0);
   const [currentEpochProgress, setCurrentEpochProgress] = useState(0.0);
-  const [validatorRank, setValidatorRank] = useState(64);
-  const [allTotalDelegatedStake, setAllTotalDelegatedStake] = useState(0);
-  const [serverHealth, setServerHealth] = useState("DOWN");
-  
 
-  useEffect(() => {
+  const [epochData, setEpochData] = useState({});
+  const [statusData, setStatusData] = useState({});
+
+
+  const getEpochData = async() => {
     let jsonBody = {
       network_identifier: {
         network: "mainnet",
@@ -53,25 +50,64 @@ const StatusPage = () => {
         return response.json();
       })
       .then((data) => {
-        setUptimePercentage(data.validator.info.uptime.uptime_percentage);
-        setTotalDelegatedStake(
-          Math.round(data.validator.stake.value / 1000000000000000000)
-        );
-        setMissedProposals(data.validator.info.uptime.proposals_missed);
         setCurrentEpoch(data.ledger_state.epoch);
         setCurrentEpochProgress(Math.round(data.ledger_state.round / 100));
+
       })
       .catch((error) => console.error(error));
+  }
 
-    fetch("https://lm-prod-func-australiaeast.azurewebsites.net/api/nodes", {
-      method: "GET",
-    })
+  const getStatusData = async() => {
+  
+
+    fetch(
+      "https://lm-prod-func-australiaeast.azurewebsites.net/api/nodes/latest",
+      {
+        method: "GET",
+      }
+    )
       .then((response) => {
         return response.json();
       })
-      .then((data) => {})
+      .then((data) => {
+        var validatorNodeHealth = "DOWN"; 
+        if (data.nodes[0].registeredValidator === true) {
+          validatorNodeHealth = data.nodes[0].status;
+        }
+        if (data.nodes[1].registeredValidator === true) {
+          validatorNodeHealth = data.nodes[1].status; 
+        }
+
+        var recordedAt = new Date(data.recordedAt).toLocaleString()
+        var status = {
+          "upTimePercentage": data.uptimePercentage,
+          "proposalsMissed": data.proposalsMissed,
+          "delegatedStake": data.delegatedStake.toLocaleString(),
+          "validatorRank": data.position,
+          "totalValidators": data.totalValidators,
+          "totalPeers": data.totalPeers,
+          "totalDelegatedStake": data.totalDelegatedStake.toLocaleString(),
+          "lastRecordedAt" : recordedAt,
+          "serverHealth" : validatorNodeHealth
+        };
+        setStatusData(status);
+      })
       .catch((error) => console.error(error));
-  });
+  }
+
+  useEffect(() => {
+    getEpochData();
+    getStatusData();
+
+
+    const interval=setInterval(()=>{
+      getEpochData();
+     },30000)
+       
+       
+     return()=>clearInterval(interval)
+
+  }, []);
 
   return (
     <Layout pageName="status">
@@ -80,12 +116,13 @@ const StatusPage = () => {
       </Helmet>
       <Container>
         <h1>Our Status</h1>
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <span class="tooltip">
-                <p class="tooltiptext">
-                 Showing the percentage of “proposals” the validator has successfully made over roughly the past 2 weeks
+        <div className="row">
+          <div className="column">
+            <div className="card">
+              <span className="tooltip">
+                <p className="tooltiptext">
+                  Showing the percentage of “proposals” the validator has
+                  successfully made over roughly the past 2 weeks
                 </p>
                 <div id="tailShadow"></div>
                 <div id="tail1"></div>
@@ -93,33 +130,39 @@ const StatusPage = () => {
               </span>
               <h3>Up</h3>
               <h3>Time %</h3>
-              <p>{upTimePercentage}</p>
-              <FontAwesomeIcon icon={faThumbsUp} size="3x" />
+              <p>{statusData.upTimePercentage}</p>
+              <FontAwesomeIcon icon={faThumbsUp} size="3x" color="#6666ff" />
             </div>
           </div>
-          <div class="column">
-            <div class="card">
+          <div className="column">
+            <div className="card">
               <h3>Delegated</h3>
               <h3>Stake</h3>
-              <p>{totalDelegatedStake}</p>
-              <FontAwesomeIcon icon={faWallet} size="3x" />
+              <p>{statusData.delegatedStake}</p>
+              <FontAwesomeIcon icon={faWallet} size="3x" color="#6666ff" />
             </div>
           </div>
 
-          <div class="column">
-            <div class="card">
+          <div className="column">
+            <div className="card">
               <h3>Server</h3>
               <h3>Health</h3>
-              <p>{serverHealth}</p>
-              <FontAwesomeIcon icon={serverHealth == "UP" ? faHeart : faHeartCrack} size="3x" />
+              <p>{statusData.serverHealth}</p>
+              <FontAwesomeIcon
+                icon={statusData.serverHealth == "UP" ? faHeart : faHeartCrack}
+                size="3x"
+                color="#6666ff"
+              />
             </div>
           </div>
 
-          <div class="column">
-            <div class="card">
-              <span class="tooltip">
-                <p class="tooltiptext">
-                Showing the total number of “proposals” the validator has missed over roughly the past 2 weeks (Note impact to stake is only in the epoch the proposal were missed)
+          <div className="column">
+            <div className="card">
+              <span className="tooltip">
+                <p className="tooltiptext">
+                  Showing the total number of “proposals” the validator has
+                  missed over roughly the past 2 weeks (Note impact to stake is
+                  only in the epoch the proposal were missed)
                 </p>
                 <div id="tailShadow"></div>
                 <div id="tail1"></div>
@@ -127,15 +170,15 @@ const StatusPage = () => {
               </span>
               <h3>Missed</h3>
               <h3>Proposals</h3>
-              <p>{missedProposals}</p>
-              <FontAwesomeIcon icon={faPooStorm} size="3x" />
+              <p>{statusData.proposalsMissed}</p>
+              <FontAwesomeIcon icon={faPooStorm} size="3x" color="#6666ff" />
             </div>
           </div>
 
-          <div class="column">
-            <div class="card">
-              <span class="tooltip">
-                <p class="tooltiptext">
+          <div className="column">
+            <div className="card">
+              <span className="tooltip">
+                <p className="tooltiptext">
                   Rank is based on the total stake delegated to a node and
                   compared against all nodes
                 </p>
@@ -145,17 +188,21 @@ const StatusPage = () => {
               </span>
               <h3>Validator</h3>
               <h3>Rank</h3>
-              <p>{validatorRank}</p>
-              <FontAwesomeIcon icon={faMedal} size="3x" />
+              <p>{statusData.validatorRank}</p>
+              <FontAwesomeIcon icon={faMedal} size="3x" color="#6666ff" />
             </div>
           </div>
         </div>
         <h1>Network Status</h1>
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <span class="tooltip">
-              <p class="tooltiptext">An epoch is 10000 rounds and roughly lasts 30 minutes. The precise length of an epoch is based on the rate that the network produces rounds</p>
+        <div className="row">
+          <div className="column">
+            <div className="card">
+              <span className="tooltip">
+                <p className="tooltiptext">
+                  An epoch is 10000 rounds and roughly lasts 30 minutes. The
+                  precise length of an epoch is based on the rate that the
+                  network produces rounds
+                </p>
                 <div id="tailShadow"></div>
                 <div id="tail1"></div>
                 <div id="tail2"></div>
@@ -163,44 +210,60 @@ const StatusPage = () => {
               <h3>Epoch</h3>
               <h3>Progress</h3>
               <p>{currentEpochProgress} %</p>
-              <FontAwesomeIcon icon={faBarsProgress} size="3x" />
+              <FontAwesomeIcon
+                icon={faBarsProgress}
+                size="3x"
+                color="#6666ff"
+              />
             </div>
           </div>
-          <div class="column">
-            <div class="card">
-            <span class="tooltip">
-              <p class="tooltiptext">An epoch is a period of time defined by a crypto, blockchain or DLT network protocol during which the validator nodes that participate in consensus (the validator set) are fixed</p>
+          <div className="column">
+            <div className="card">
+              <span className="tooltip">
+                <p className="tooltiptext">
+                  An epoch is a period of time defined by a crypto, blockchain
+                  or DLT network protocol during which the validator nodes that
+                  participate in consensus (the validator set) are fixed
+                </p>
                 <div id="tailShadow"></div>
                 <div id="tail1"></div>
                 <div id="tail2"></div>
               </span>
-            
+
               <h3>Current</h3>
               <h3>Epoch</h3>
               <p>{currentEpoch}</p>
-              <FontAwesomeIcon icon={faHourglassHalf} size="3x" />
+              <FontAwesomeIcon
+                icon={faHourglassHalf}
+                size="3x"
+                color="#6666ff"
+              />
             </div>
           </div>
-          <div class="column">
-            <div class="card">
+          <div className="column">
+            <div className="card">
               <h3>Total Peers</h3>
               <h3>Count</h3>
-              <p>{upTimePercentage}</p>
-              <FontAwesomeIcon icon={faNetworkWired} size="3x" />
+              <p>{statusData.totalPeers}</p>
+              <FontAwesomeIcon
+                icon={faNetworkWired}
+                size="3x"
+                color="#6666ff"
+              />
             </div>
           </div>
-          <div class="column">
-            <div class="card">
+          <div className="column">
+            <div className="card">
               <h3>Total Validator</h3>
               <h3>Count</h3>
-              <p>{upTimePercentage}</p>
-              <FontAwesomeIcon icon={faServer} size="3x" />
+              <p>{statusData.totalValidators}</p>
+              <FontAwesomeIcon icon={faServer} size="3x" color="#6666ff" />
             </div>
           </div>
-          <div class="column">
-            <div class="card">
-              <span class="tooltip">
-                <p class="tooltiptext">
+          <div className="column">
+            <div className="card">
+              <span className="tooltip">
+                <p className="tooltiptext">
                   Total delegated stake across all nodes in the network
                 </p>
                 <div id="tailShadow"></div>
@@ -209,11 +272,12 @@ const StatusPage = () => {
               </span>
               <h3>Delegated </h3>
               <h3>Stake</h3>
-              <p>{allTotalDelegatedStake}</p>
-              <FontAwesomeIcon icon={faPiggyBank} size="3x" />
+              <p>{ statusData.totalDelegatedStake}</p>
+              <FontAwesomeIcon icon={faPiggyBank} size="3x" color="#6666ff" />
             </div>
           </div>
         </div>
+        <p>Status Last Recorded At {statusData.lastRecordedAt}</p>
       </Container>
     </Layout>
   );

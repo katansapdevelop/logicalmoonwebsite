@@ -33,19 +33,19 @@ const Header = () => {
             </AniLink>
           </li>
           <li>
-            <AniLink
-              cover
+            <a
+              
               direction="right"
-              to="https://radixlogicalmoon.gitbook.io/radix-logical-moon-docs/"
+              href="https://radixlogicalmoon.gitbook.io/radix-logical-moon-docs/"
               bg="#6666ff"
               duration={0.7}
               className="header-link"
             >
               About
-            </AniLink>
+            </a>
           </li>
           
-          {/*
+          
           <li>
             <AniLink
               cover
@@ -59,16 +59,16 @@ const Header = () => {
             </AniLink>
           </li>
           
-          
+          {/*
           <li>
             <AniLink
               cover
-              to="/projects/"
+              to="/dashboard/"
               bg="#6666ff"
               duration={0.7}
               className="header-link"
             >
-              FAQ
+              Dashboard
             </AniLink>
           </li>
           */}

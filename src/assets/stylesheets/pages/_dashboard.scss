@@ -1,25 +1,18 @@
-.page-status {
+.page-dashboard {
   h1 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
     @include blue-gradient;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .material-icons {
-    font-family: "Material Icons";
-    font-size: 50px;
-    color: #00d9ff;
-
-    :hover {
-      fill: #00d9ff;
-    }
-  }
 
   main {
     text-align: right;
+  }
+
+  header {
+    //background-color: #6666ff;
   }
 
   header a,
@@ -37,10 +30,12 @@
     text-justify: inter-word;
   }
 
+
+
   /* Float five columns side by side */
   .column {
     float: left;
-    width: 18%;
+    width: 30%;
     padding: 0 10px;
   }
 
