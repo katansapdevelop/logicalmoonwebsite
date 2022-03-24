@@ -73,6 +73,15 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    text-align: center;
+    a{
+      text-align: left;
+    }
+  }
+
+  .bannerLogo{
+    height: 80px;
+    width: 80px;
   }
 
   @keyframes textclip {

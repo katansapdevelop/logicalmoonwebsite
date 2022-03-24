@@ -59,7 +59,7 @@ const Header = () => {
             </AniLink>
           </li>
           
-          {/*
+          
           <li>
             <AniLink
               cover
@@ -71,7 +71,7 @@ const Header = () => {
               Dashboard
             </AniLink>
           </li>
-          */}
+  
         </ul>
       </Container>
     </header>

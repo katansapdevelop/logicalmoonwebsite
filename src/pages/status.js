@@ -20,7 +20,6 @@ const StatusPage = () => {
   const [currentEpoch, setCurrentEpoch] = useState(0);
   const [currentEpochProgress, setCurrentEpochProgress] = useState(0.0);
 
-  const [epochData, setEpochData] = useState({});
   const [statusData, setStatusData] = useState({});
 
   const getEpochData = async () => {
@@ -148,7 +147,7 @@ const StatusPage = () => {
               <h3>Health</h3>
               <p>{statusData.serverHealth}</p>
               <FontAwesomeIcon
-                icon={statusData.serverHealth == "UP" ? faHeart : faHeartCrack}
+                icon={statusData.serverHealth === "UP" ? faHeart : faHeartCrack}
                 size="3x"
                 color="#6666ff"
               />
