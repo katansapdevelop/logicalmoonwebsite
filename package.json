@@ -64,7 +64,7 @@
     "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
     "serve": "gatsby serve",
     "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "firebase deploy"
   },
   "repository": {
     "type": "git",

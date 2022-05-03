@@ -20,7 +20,6 @@ import {
   PieController,
   BarController,
   DoughnutController,
-  
 } from "chart.js";
 
 ChartJS.register(
@@ -36,10 +35,21 @@ ChartJS.register(
   BarElement,
   PieController,
   BarController,
-  DoughnutController,
+  DoughnutController
 );
 
 const DashboardPage = () => {
+  // Background colours
+  const backgroundColors = [
+    "#6666ff",
+    "#1ae0cc",
+    "#5e95d9",
+    "#f770f0",
+    //"#42d5eb",
+    //"#5692c4",
+    "#00d9ff",
+  ];
+
   const [currentEpoch, setCurrentEpoch] = useState(0);
 
   // Charts
@@ -50,7 +60,7 @@ const DashboardPage = () => {
       {
         label: "Epoch Progress",
         data: [0, 100],
-        backgroundColor: ["#6666ff", "#1ae0cc"],
+        backgroundColor: backgroundColors.slice(0,2),
         borderColor: ["#5e95d9", "#5e95d9"],
         borderWidth: 1,
       },
@@ -65,7 +75,7 @@ const DashboardPage = () => {
           label: "Radix Price",
           data: [0],
           borderColor: "#6666ff",
-          backgroundColor: "#1ae0cc",
+          backgroundColor: backgroundColors.slice(0,1),
         },
       ],
     },
@@ -79,7 +89,7 @@ const DashboardPage = () => {
           label: "Radix Price",
           data: [0],
           borderColor: "#6666ff",
-          backgroundColor: "#1ae0cc",
+          backgroundColor: backgroundColors.slice(0,1),
         },
       ],
     },
@@ -98,13 +108,7 @@ const DashboardPage = () => {
       {
         label: "Stake Spread",
         data: [100, 100, 100, 100, 100],
-        backgroundColor: [
-          "#1ae0cc",
-          "#6666ff",
-          "#42d5eb",
-          "#5e95d9",
-          "#6666ff",
-        ],
+        backgroundColor: backgroundColors.slice(0,5),
         borderColor: ["#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9"],
         borderWidth: 1,
       },
@@ -125,13 +129,7 @@ const DashboardPage = () => {
         {
           label: "Stake Spread",
           data: [100, 100, 100, 100, 100],
-          backgroundColor: [
-            "#1ae0cc",
-            "#6666ff",
-            "#42d5eb",
-            "#5e95d9",
-            "#6666ff",
-          ],
+          backgroundColor: backgroundColors.slice(0,5),
           borderColor: ["#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9"],
           borderWidth: 1,
         },
@@ -151,13 +149,7 @@ const DashboardPage = () => {
         {
           label: "Unregistered Stake",
           data: [10, 10, 10, 10, 10],
-          backgroundColor: [
-            "#1ae0cc",
-            "#6666ff",
-            "#42d5eb",
-            "#5e95d9",
-            "#6666ff",
-          ],
+          backgroundColor: backgroundColors.slice(0,5),
           borderColor: ["#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9"],
           borderWidth: 1,
         },
@@ -207,7 +199,7 @@ const DashboardPage = () => {
               data: priceData,
               borderColor: "#6666ff",
               borderWidth: 1,
-              backgroundColor: "#1ae0cc",
+              backgroundColor: backgroundColors.slice(0,1),
             },
           ],
         };
@@ -216,30 +208,25 @@ const DashboardPage = () => {
       })
       .catch((error) => console.error(error));
 
-    
     let radixMarketData1Year = {};
     let dateFrom = new Date();
-    if(dateFrom.getMonth() > 6){
+    if (dateFrom.getMonth() > 6) {
       dateFrom.setMonth(dateFrom.getMonth() - 6);
-    }
-    else{
+    } else {
       let month = 11 + (dateFrom.getMonth() - 6);
-      dateFrom.setYear(dateFrom.getYear() - 1)
+      dateFrom.setYear(dateFrom.getYear() - 1);
       dateFrom.setMonth(month);
-      
     }
-    
+
     dateFrom = dateFrom.getTime().toString().substring(0, 10);
     let dateTo = new Date();
     dateTo = dateTo.getTime().toString().substring(0, 10);
-    
-    
+
     let uri =
       "https://api.coingecko.com/api/v3/coins/radix/market_chart/range?vs_currency=usd&from=" +
       dateFrom +
       "&to=" +
       dateTo;
-
 
     fetch(uri, {
       method: "GET",
@@ -250,11 +237,10 @@ const DashboardPage = () => {
       .then((radixPriceData) => {
         let priceData = [];
         let priceLabels = [];
-        
+
         let storePrice = true;
         radixPriceData.prices.forEach((priceRecord) => {
-
-          if(storePrice === true){
+          if (storePrice === true) {
             priceLabels.push(
               new Date(priceRecord[0]).toLocaleDateString(navigator.language, {
                 month: "numeric",
@@ -275,7 +261,7 @@ const DashboardPage = () => {
               data: priceData,
               borderColor: "#6666ff",
               borderWidth: 1,
-              backgroundColor: "#1ae0cc",
+              backgroundColor: backgroundColors.slice(0,1),
             },
           ],
         };
@@ -298,7 +284,7 @@ const DashboardPage = () => {
         {
           label: "Epoch Progress",
           data: [percentageComplete, percentageIncomplete],
-          backgroundColor: ["#6666ff", "#1ae0cc"],
+          backgroundColor: backgroundColors.slice(0,2),
           borderColor: ["#5e95d9", "#5e95d9"],
           borderWidth: 1,
         },
@@ -423,13 +409,7 @@ const DashboardPage = () => {
             radixFoundationUnregistered,
             radixFoundation,
           ],
-          backgroundColor: [
-            "#1ae0cc",
-            "#6666ff",
-            "#42d5eb",
-            "#5e95d9",
-            "#6666ff",
-          ],
+          backgroundColor: backgroundColors.slice(0,5),
           borderColor: ["#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9"],
           borderWidth: 1,
         },
@@ -448,13 +428,7 @@ const DashboardPage = () => {
             delegatedStakeRegisterValidatorsTop51to100,
             delegatedStakeRegisterValidatorsTop101to120,
           ],
-          backgroundColor: [
-            "#1ae0cc",
-            "#6666ff",
-            "#42d5eb",
-            "#5e95d9",
-            "#6666ff",
-          ],
+          backgroundColor: backgroundColors.slice(0,5),
           borderColor: ["#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9"],
           borderWidth: 1,
         },
@@ -467,13 +441,7 @@ const DashboardPage = () => {
         {
           label: "Unregistered Stake",
           data: unregisteredValidatorStake.slice(0, 5),
-          backgroundColor: [
-            "#1ae0cc",
-            "#6666ff",
-            "#42d5eb",
-            "#5e95d9",
-            "#6666ff",
-          ],
+          backgroundColor: backgroundColors.slice(0,5),
           borderColor: ["#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9", "#5e95d9"],
           borderWidth: 1,
         },

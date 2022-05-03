@@ -45,6 +45,18 @@ const Header = () => {
             </a>
           </li>
           
+          <li>
+            <a
+              
+              direction="right"
+              href="https://radixlogicalmoon.gitbook.io/radix-logical-moon-docs/staking/why-stake-with-us#partnerships"
+              bg="#6666ff"
+              duration={0.7}
+              className="header-link"
+            >
+              Partners
+            </a>
+          </li>
           
           <li>
             <AniLink
@@ -71,6 +83,8 @@ const Header = () => {
               Dashboard
             </AniLink>
           </li>
+
+
   
         </ul>
       </Container>
