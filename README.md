@@ -1,6 +1,6 @@
 # Logical Moon Website
 
-The Logical Moon site is built to run using GatsbyJS and levarages the [Gatsby Sass Starter](https://github.com/a2zarslaan/gatsby-starter-sasslan).
+The Logical Moon site is built to run using GatsbyJS and leverages the [Gatsby Sass Starter](https://github.com/a2zarslaan/gatsby-starter-sasslan).
 
 # Getting Started
 

@@ -59,7 +59,7 @@
       #1ae0cc,
       #42d5eb,
       #5e95d9,
-      #6666ff
+      #6666ff,
     );
     background-size: auto auto;
     background-clip: border-box;
@@ -73,6 +73,19 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    text-align: center;
+    a{
+      text-align: left;
+    }
+
+    @include respond(phone)  {
+      animation: none;
+    }
+  }
+
+  .bannerLogo{
+    height: 80px;
+    width: 80px;
   }
 
   @keyframes textclip {

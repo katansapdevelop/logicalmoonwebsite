@@ -8,6 +8,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
+    "chart.js": "^3.0.0",
     "gatsby": "2.32.13",
     "gatsby-plugin-favicons": "2.0.0",
     "gatsby-plugin-google-fonts": "1.0.1",
@@ -24,6 +25,7 @@
     "node-sass": "4.14.1",
     "prop-types": "15.8.1",
     "react": "16.14.0",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "16.14.0",
     "react-helmet": "5.2.1",
     "react-modal": "3.14.4"
@@ -62,7 +64,7 @@
     "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
     "serve": "gatsby serve",
     "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "firebase deploy"
   },
   "repository": {
     "type": "git",
