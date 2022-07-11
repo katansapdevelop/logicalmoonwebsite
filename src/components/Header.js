@@ -57,7 +57,7 @@ const Header = () => {
               Partners
             </a>
           </li>
-          
+          {/*
           <li>
             <AniLink
               cover
@@ -70,7 +70,7 @@ const Header = () => {
               Status
             </AniLink>
           </li>
-          
+           */}
           
           <li>
             <AniLink

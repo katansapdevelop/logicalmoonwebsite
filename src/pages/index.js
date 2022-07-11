@@ -35,14 +35,11 @@ const IndexPage = () => {
         <h1 className="heading">Stake With Logical Moon!</h1>
         <p className="banner">Top 100 Radix Validator Node - Live on Mainnet</p>
 
-        {/*         
+                 
         <p className="animateCharacterBanner">
-          Now officially a partner of Delphibets, the first prediction market
-          exclusively on Radix DLT. Stake with us and receive a bonus 25% of
-          $DPH stake airdrops 
-           <a href="https://radixlogicalmoon.gitbook.io/radix-logical-moon-docs/staking/why-stake-with-us#delphibets-partnership"><img className="bannerLogo" src={img_delphibets_logo} alt="Delphibets Logo"></img></a> 
+          Due to an unforeseen issue with our cloud API provider we have temporarily removed our status page. Rest assured we are working on a solution and it will return as soon as it is resolved 
         </p>
-        */}
+        
 
         <br />
         <p className="nodeAddressbanner">Validator Address: </p>
