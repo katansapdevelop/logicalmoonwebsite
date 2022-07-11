@@ -6,7 +6,6 @@ import Container from "components/Container";
 
 import img_radix_moon from "assets/images/moon-radix.png";
 import img_copy from "assets/images/SVG/copy.svg";
-import img_delphibets_logo from "assets/images/Delphibets_Logo.png";
 
 console.log("This is the image: " + img_copy);
 
@@ -35,14 +34,15 @@ const IndexPage = () => {
         </p>
         <h1 className="heading">Stake With Logical Moon!</h1>
         <p className="banner">Top 100 Radix Validator Node - Live on Mainnet</p>
-                 
+
+        {/*         
         <p className="animateCharacterBanner">
           Now officially a partner of Delphibets, the first prediction market
           exclusively on Radix DLT. Stake with us and receive a bonus 25% of
           $DPH stake airdrops 
-          {/* <a href="https://radixlogicalmoon.gitbook.io/radix-logical-moon-docs/staking/why-stake-with-us#delphibets-partnership"><img className="bannerLogo" src={img_delphibets_logo} alt="Delphibets Logo"></img></a> */}
+           <a href="https://radixlogicalmoon.gitbook.io/radix-logical-moon-docs/staking/why-stake-with-us#delphibets-partnership"><img className="bannerLogo" src={img_delphibets_logo} alt="Delphibets Logo"></img></a> 
         </p>
-        
+        */}
 
         <br />
         <p className="nodeAddressbanner">Validator Address: </p>

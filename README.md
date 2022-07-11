@@ -5,7 +5,7 @@ The Logical Moon site is built to run using GatsbyJS and leverages the [Gatsby S
 # Getting Started
 
 ## Requirements
-
+- Node.js version 14 (use NVM to switch to 14 if required)
 - [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)
 - [Npm](https://www.npmjs.com/)
 

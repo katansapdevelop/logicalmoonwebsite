@@ -19,7 +19,6 @@ import { faPiggyBank } from "@fortawesome/free-solid-svg-icons";
 const StatusPage = () => {
   const [currentEpoch, setCurrentEpoch] = useState(0);
   const [currentEpochProgress, setCurrentEpochProgress] = useState(0.0);
-
   const [statusData, setStatusData] = useState({});
 
   const getEpochData = async () => {
@@ -53,7 +52,7 @@ const StatusPage = () => {
 
   const getStatusData = async () => {
     fetch(
-      "https://lm-prod-func-australiaeast.azurewebsites.net/api/nodes/latest",
+      "https://lm-prod-func-api-australiaeast.azurewebsites.net/api/nodes/latest",
       {
         method: "GET",
       }
