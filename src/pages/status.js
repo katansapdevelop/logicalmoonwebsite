@@ -116,15 +116,6 @@ const StatusPage = () => {
         <div className="row">
           <div className="column">
             <div className="card">
-              <span className="tooltip">
-                <p className="tooltiptext">
-                  Showing the percentage of “proposals” the validator has
-                  successfully made over roughly the past 2 weeks
-                </p>
-                <div id="tailShadow"></div>
-                <div id="tail1"></div>
-                <div id="tail2"></div>
-              </span>
               <h3>Up</h3>
               <h3>Time %</h3>
               <p>{statusData.upTimePercentage}</p>
@@ -155,16 +146,6 @@ const StatusPage = () => {
 
           <div className="column">
             <div className="card">
-              <span className="tooltip">
-                <p className="tooltiptext">
-                  Showing the total number of “proposals” the validator has
-                  missed over roughly the past 2 weeks (Note impact to stake is
-                  only in the epoch the proposal were missed)
-                </p>
-                <div id="tailShadow"></div>
-                <div id="tail1"></div>
-                <div id="tail2"></div>
-              </span>
               <h3>Missed</h3>
               <h3>Proposals</h3>
               <p>{statusData.proposalsMissed}</p>
@@ -174,15 +155,6 @@ const StatusPage = () => {
 
           <div className="column">
             <div className="card">
-              <span className="tooltip">
-                <p className="tooltiptext">
-                  Rank is based on the total stake delegated to a node and
-                  compared against all nodes
-                </p>
-                <div id="tailShadow"></div>
-                <div id="tail1"></div>
-                <div id="tail2"></div>
-              </span>
               <h3>Validator</h3>
               <h3>Rank</h3>
               <p>{statusData.validatorRank}</p>
@@ -194,16 +166,6 @@ const StatusPage = () => {
         <div className="row">
           <div className="column">
             <div className="card">
-              <span className="tooltip">
-                <p className="tooltiptext">
-                  An epoch is 10000 rounds and roughly lasts 30 minutes. The
-                  precise length of an epoch is based on the rate that the
-                  network produces rounds
-                </p>
-                <div id="tailShadow"></div>
-                <div id="tail1"></div>
-                <div id="tail2"></div>
-              </span>
               <h3>Epoch</h3>
               <h3>Progress</h3>
               <p>{currentEpochProgress} %</p>
@@ -216,17 +178,6 @@ const StatusPage = () => {
           </div>
           <div className="column">
             <div className="card">
-              <span className="tooltip">
-                <p className="tooltiptext">
-                  An epoch is a period of time defined by a crypto, blockchain
-                  or DLT network protocol during which the validator nodes that
-                  participate in consensus (the validator set) are fixed
-                </p>
-                <div id="tailShadow"></div>
-                <div id="tail1"></div>
-                <div id="tail2"></div>
-              </span>
-
               <h3>Current</h3>
               <h3>Epoch</h3>
               <p>{currentEpoch}</p>
@@ -259,14 +210,6 @@ const StatusPage = () => {
           </div>
           <div className="column">
             <div className="card">
-              <span className="tooltip">
-                <p className="tooltiptext">
-                  Total delegated stake across all nodes in the network
-                </p>
-                <div id="tailShadow"></div>
-                <div id="tail1"></div>
-                <div id="tail2"></div>
-              </span>
               <h3>Delegated </h3>
               <h3>Stake</h3>
               <p>{statusData.totalDelegatedStake}</p>

@@ -6,13 +6,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    //color: var(--color-grey-dark-1);
-
+    text-align: center;
     // gradient effect in heading
     @include blue-gradient;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  
+    @include respond(phone) {
+      font-size: 4rem;
+      font-weight: 900;
+      
+    }
   }
 
   .heading::selection {
@@ -28,6 +33,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    text-align: center;
   }
 
   .nodeAddressbanner {
@@ -38,7 +44,6 @@
     margin: 0 auto;
 
     @include respond(phone) {
-      //width <= 600?
       word-wrap: break-word;
       display: none;
     }
@@ -46,13 +51,13 @@
 
   .nodeAddressbannerText {
     @include respond(phone) {
-      //width <= 600?
       word-wrap: break-word;
       display: none;
     }
   }
 
   .animateCharacterBanner {
+    
     background-image: linear-gradient(
       240deg,
       #00d9ff,
@@ -61,8 +66,9 @@
       #5e95d9,
       #6666ff,
     );
-    background-size: auto auto;
-    background-clip: border-box;
+
+    font-size: 4rem;
+    font-weight: 600;
     background-size: 200% auto;
     color: #fff;
     background-clip: text;
@@ -80,7 +86,7 @@
 
     @include respond(phone)  {
       animation: none;
-    }
+    }    
   }
 
   .bannerLogo{
@@ -153,7 +159,58 @@
     margin: 0 auto;
 
     img {
-      height: 40vh;
+      height: 35vh;
+
+      @include respond(phone) {
+        //width <= 600?
+        height: 20vh;
+      }
+
+      @include respond(tab-port) {
+        //width <= 900?
+        height: 20vh;
+      }
     }
   }
+
+  .bannerArea{
+    display: block;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    color: grey;
+    
+    
+    .img{
+      vertical-align:middle;
+    }
+
+    a:link, a:visited{
+      text-decoration: none;
+      font-weight: 1000;
+
+      .bannerButtonText{
+        color: #6666ff;
+      }
+      
+    }
+
+    a:hover, a:active {
+      .bannerButtonText{
+        color: #42d5eb;
+      }
+    }
+
+    .bannerButton{
+      border-style: solid;
+      border-radius: 5px;
+      padding: 20px;    
+      
+      color: grey;
+      
+    }
+
+    
+  }
+  
 }
